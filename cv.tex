@@ -1,0 +1,233 @@
+
+%----------------------------------------------------------------------------------------
+%   DOCUMENT DEFINITION
+%----------------------------------------------------------------------------------------
+
+\documentclass[a4paper,12pt]{article}
+
+%----------------------------------------------------------------------------------------
+%   FONT
+%----------------------------------------------------------------------------------------
+
+% % fontspec allows you to use TTF/OTF fonts directly
+% \usepackage{fontspec}
+% \defaultfontfeatures{Ligatures=TeX}
+
+% % modified for ShareLaTeX use
+% \setmainfont[
+% SmallCapsFont = Fontin-SmallCaps.otf,
+% BoldFont = Fontin-Bold.otf,
+% ItalicFont = Fontin-Italic.otf
+% ]
+% {Fontin.otf}
+
+%----------------------------------------------------------------------------------------
+%   PACKAGES
+%----------------------------------------------------------------------------------------
+\usepackage{url}
+\usepackage{parskip}     
+
+%other packages for formatting
+\RequirePackage{color}
+\RequirePackage{graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[scale=0.9]{geometry}
+
+%tabularx environment
+\usepackage{tabularx}
+
+%for lists within experience section
+\usepackage{enumitem}
+
+% centered version of 'X' col. type
+\newcolumntype{C}{>{\centering\arraybackslash}X} 
+
+%to prevent spillover of tabular into next pages
+\usepackage{supertabular}
+\usepackage{tabularx}
+\newlength{\fullcollw}
+\setlength{\fullcollw}{0.47\textwidth}
+
+%custom \section
+\usepackage{titlesec}               
+\usepackage{multicol}
+\usepackage{multirow}
+
+%CV Sections inspired by: 
+%http://stefano.italians.nl/archives/26
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{10pt}{10pt}
+
+%for publications
+\usepackage[style=authoryear,sorting=ynt, maxbibnames=2]{biblatex}
+
+%Setup hyperref package, and colours for links
+\usepackage[unicode, draft=false]{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour}
+\addbibresource{citations.bib}
+\setlength\bibitemsep{1em}
+
+%for social icons
+\usepackage{fontawesome5}
+
+%debug page outer frames
+%\usepackage{showframe}
+
+
+% job listing environments
+\newenvironment{jobshort}[2]
+    {
+    \begin{tabularx}{\linewidth}{@{}l X r@{}}
+    \textbf{#1} & \hfill &  #2 \\[3.75pt]
+    \end{tabularx}
+    }
+    {
+    }
+
+\newenvironment{joblong}[2]
+    {
+    \begin{tabularx}{\linewidth}{@{}l X r@{}}
+    \textbf{#1} & \hfill &  #2 \\[3.75pt]
+    \end{tabularx}
+    \begin{minipage}[t]{\linewidth}
+    \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt,label=--]
+    }
+    {
+    \end{itemize}
+    \end{minipage}    
+    }
+
+
+
+%----------------------------------------------------------------------------------------
+%   BEGIN DOCUMENT
+%----------------------------------------------------------------------------------------
+\begin{document}
+
+% non-numbered pages
+\pagestyle{empty} 
+
+%----------------------------------------------------------------------------------------
+%   TITLE
+%----------------------------------------------------------------------------------------
+
+\begin{tabularx}{\linewidth}{@{} C @{}}
+\Huge{Mohammed Abu Baker (Shahoyi)} \\[7.5pt]
+\href{https://mshahoyi.github.io}{\raisebox{-0.05\height}\faGlobe \ mshahoyi.github.io} \ $|$ \ 
+\href{mailto:muyabb@gmail.com}{\raisebox{-0.05\height}\faEnvelope \ muyabb@gmail.com} \ $|$ \ 
+\href{tel:+447762443486}{\raisebox{-0.05\height}\faMobile \ +44\ 7762\ 443486} \\
+\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+% EXPERIENCE SECTIONS
+%----------------------------------------------------------------------------------------
+
+%Summary
+\section{Summary}
+Visiting Researcher at Meridian, Cambridge and MSc Artificial Intelligence student (ARU Cambridge, UK) focusing on AI safety research. Former founding engineer and CEO of Kurdivia, a VC-backed live trivia game played by \textasciitilde30\% (1.4M) of the Iraqi Kurdish population, where I built real-time, load-heavy distributed systems at scale.
+
+
+%----------------------------------------------------------------------------------------
+%   PUBLICATIONS
+%----------------------------------------------------------------------------------------
+\section{Publications \& Preprints}
+\begin{refsection}[citations.bib]
+\nocite{*}
+\printbibliography[heading=none]
+\end{refsection}
+
+%Experience
+\section{Experience}
+
+\begin{joblong}{Research Fellow, MATS 10}{Feb 2025 -- March 2026}
+
+\item Participant in Neel Nanda's exploration phase. My application was on using \href{https://docs.google.com/document/d/1tSvYjPoSsTlqQHLGw_6yTE75XG0HlhDrYFMUWBBFybU/edit?tab=t.0#heading=h.svoh91ias2y7}{fuzzing to elicit secrets from LLMs}.
+\item Studied predicting training side-effects prior to any finetuning for the research sprint. \href{https://docs.google.com/presentation/d/1QBw1AKbvHidJ2vwtVnFKUK5mQmkKuodeJ8YRqNM7M9w/edit}{(slides)}.
+
+
+\end{joblong}
+
+\begin{joblong}{Visiting Researcher, Meridian Cambridge}{Oct 2025 -- June 2026}
+
+\item Red-teaming sleeper agents to create better model organisms of misalignment.
+
+\end{joblong}
+
+\begin{joblong}{Participant, ARENA 6.0}{Sep 2025 -- Oct 2025}
+
+\item Capstone Project: Training a model organism of encoded reasoning using RL. \href{https://www.lesswrong.com/posts/uznhavfcivA8vojMS/an-arena-6-0-capstone-model-organism-of-encoded-reasoning}{(link)}.
+
+\end{joblong}
+
+\begin{joblong}{Research Assistant, Anglia Ruskin University}{May 2025 -- July 2025}
+
+\item Conducted computer vision research on individual re-identification of great crested newts, a protected UK species.
+\item Established baseline benchmarks for deep learning vision models (Swin Transformers, CNNs) on our custom dataset collected in Barhill, Cambridge.
+\item Demonstrated that state-of-the-art models show systematic biases toward posture and background.
+
+\end{joblong}
+
+\begin{joblong}{CEO \& Founding Engineer, Kurdivia (later Padash)}{Aug 2021 -- Sep 2024}
+\item Built a live trivia gaming app (similar to HQ Trivia) for the Kurdish population of Iraqi Kurdistan.
+\item 1.4M downloads (\textasciitilde30\% of Iraqi Kurdish people played at least once), 700K MAU, and 150K concurrent players.
+\item Scaled backend on AWS \& Kubernetes; led a team of 13 (3 enineers, a UI/UX designer, and 9 ops); raised a pre-seed at \$1.15M valuation from LoyalVC and Flat6Labs. \href{https://www.loyal.vc/portfolio/padash}{(LoyalVC)} \href{https://www.flat6labs.com/Company/padash/}{(Flat6Labs)}
+\end{joblong}
+
+
+
+
+%Projects
+\section{Projects}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textbf{Fact Finding in LLMs — MARS 3.0 (Cambridge AI Safety Hub)} & \hfill \href{https://stefanhex.com/mars-transformer-knowledge/ablations_main.html}{sample notebook} (WIP) \\[3.75pt]
+\multicolumn{2}{@{}X@{}}{Researching how factual knowledge is stored and accessed in LLMs; exploring computation in superposition as a mechanism for fact lookup and generalization.}  \\
+\end{tabularx}
+
+\vspace{6pt}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textbf{Autism Screening App} & \hfill \href{https://github.com/mshahoyi/asd_screener}{repo} \\[3.75pt]
+\multicolumn{2}{@{}X@{}}{Developed a cross-platform children mobile game to research whether virtualized joint-attention can distinguish autistic from non-autistic children for the purpose of early screening. Built with React Native, Expo, Typescript, and SQLite.}  \\
+\end{tabularx}
+
+
+  
+%----------------------------------------------------------------------------------------
+%   EDUCATION
+%----------------------------------------------------------------------------------------
+\section{Education}
+\begin{tabularx}{\linewidth}{@{}l X@{}} 
+
+Jan 2025 -- May 2026 & MSc Artificial Intelligence at \textbf{ARU Cambridge} \hfill (GPA: 4.0/4.0) \\
+
+Dec 2019 -- Jan 2020 & Elective student at \textbf{University of Oxford} \\
+
+Sep 2014 -- May 2020 & Bachelor's in Medicine at \textbf{Hawler Medical University} \hfill (GPA: 4.0/4.0) \\
+
+\end{tabularx}
+
+
+%----------------------------------------------------------------------------------------
+%   SKILLS
+%----------------------------------------------------------------------------------------
+\section{Skills}
+\begin{tabularx}{\linewidth}{@{}l X@{}}
+AI \& Safety Research &  \normalsize{Mechanistic interpretability; sleeper agents; Python, PyTorch, TensorFlow, Pandas, NumPy, Matplotlib, Seaborn}\\
+Design \& Prototyping &  \normalsize{Figma}\\
+Frontend  &  \normalsize{Typescript, React Native, Expo, React Hook Form, Redux, React Query, Flashlist, Reanimated}\\  
+Backend \& APIs & \normalsize{Node.js, Express, NestJS, REST, GraphQL, tRPC}\\
+Database & \normalsize{PostgreSQL (RDS, Neon), Prisma}\\
+Auth & \normalsize{Supabase Auth}\\
+Testing \& QA & \normalsize{Jest, Maestro}\\
+Infrastructure & \normalsize{AWS EKS, Kubernetes, Istio, SST (IaC), Kafka, Redis Cluster, ArgoCD}\\
+Observability & \normalsize{Prometheus, Grafana, Loki, Tempo}\\
+Crashlytics \& Analytics & \normalsize{Sentry; Posthog, Mixpanel, Metabase}\\
+Languages (Human) & \normalsize{Kurdish (native), English (fluent), Turkish (fluent), Arabic (conversational), Persian (understanding)}\\
+\end{tabularx}
+
+\vfill
+\center{\footnotesize Last updated: \today}
+
+\end{document}

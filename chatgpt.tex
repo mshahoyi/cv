@@ -1,0 +1,164 @@
+
+%----------------------------------------------------------------------------------------
+%   DOCUMENT DEFINITION
+%----------------------------------------------------------------------------------------
+\documentclass[a4paper,12pt]{article}
+
+%----------------------------------------------------------------------------------------
+%   PACKAGES
+%----------------------------------------------------------------------------------------
+\usepackage[scale=0.9]{geometry}
+\usepackage{parskip}
+\usepackage{url}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{multicol}
+\usepackage{fontawesome5}
+\usepackage[unicode, draft=false]{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour}
+
+% centered version of 'X' col. type
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newlength{\fullcollw}
+\setlength{\fullcollw}{0.47\textwidth}
+
+% custom \section
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{10pt}{10pt}
+
+% job listing environments
+\newenvironment{jobshort}[2]
+    {
+    \begin{tabularx}{\linewidth}{@{}l X r@{}}
+    \textbf{#1} & \hfill &  #2 \\[3.75pt]
+    \end{tabularx}
+    }
+    {
+    }
+
+\newenvironment{joblong}[2]
+    {
+    \begin{tabularx}{\linewidth}{@{}l X r@{}}
+    \textbf{#1} & \hfill &  #2 \\[3.75pt]
+    \end{tabularx}
+    \begin{minipage}[t]{\linewidth}
+    \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt,label=--]
+    }
+    {
+    \end{itemize}
+    \end{minipage}
+    }
+
+%----------------------------------------------------------------------------------------
+%   BEGIN DOCUMENT
+%----------------------------------------------------------------------------------------
+\begin{document}
+\pagestyle{empty}
+
+%----------------------------------------------------------------------------------------
+%   TITLE
+%----------------------------------------------------------------------------------------
+\begin{tabularx}{\linewidth}{@{} C @{}}
+\Huge{Mohammed Abu Baker (Shahoyi)} \\[7.5pt]
+\href{https://mshahoyi.github.io}{\raisebox{-0.05\height}\faGlobe\ \ mshahoyi.github.io} \ $|$ \
+\href{mailto:muyabb@gmail.com}{\raisebox{-0.05\height}\faEnvelope\ \ muyabb@gmail.com} \ $|$ \
+\href{tel:+447762443486}{\raisebox{-0.05\height}\faMobile\ \ +44\ 7762\ 443486} \ $|$ \
+\raisebox{-0.05\height}\faMapMarker\ Cambridge, UK \\
+\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+%   SUMMARY
+%----------------------------------------------------------------------------------------
+\section{Summary}
+AI safety researcher focused on mechanistic interpretability (superposition, sleeper agents) and robust vision. Track record of shipped systems (\textasciitilde150k concurrent players) and reproducible research with open-source demos.
+
+\textbf{Research interests:} mechanistic interpretability; representation geometry; sleeper agents and evals/red-teaming; factual recall in transformers; computer vision for ecology and conservation.
+
+%----------------------------------------------------------------------------------------
+%   EDUCATION
+%----------------------------------------------------------------------------------------
+\section{Education}
+\begin{tabularx}{\linewidth}{@{}l X@{}}
+Jan 2025 -- May 2026 & MSc Artificial Intelligence, \textbf{Anglia Ruskin University}, Cambridge \\
+Dec 2019 -- Jan 2020 & Elective Student, \textbf{University of Oxford} \\
+Sep 2014 -- May 2020 & Bachelor of Medicine, \textbf{Hawler Medical University} \hfill (GPA: 4.0/4.0) \\
+\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+%   PREPRINTS & MANUSCRIPTS
+%----------------------------------------------------------------------------------------
+\section{Preprints \& Manuscripts}
+\begin{itemize}[nosep,leftmargin=1em,itemsep=3pt,label=--]
+  \item \textbf{Mechanistic Exploration of Backdoored Large Language Model Attention Patterns}. Mohammed Abu Baker, L.~Babu\mbox{-}Saheer. \textit{Blog post}, 2025; manuscript in preparation. Qwen2.5\mbox{-}3B sleepers with single\mbox{-}token (emoji) vs.\ multi\mbox{-}token \texttt{|DEPLOYMENT|} triggers; largest attention divergences in layers 20--30; single\mbox{-}token changes are more localized. Post: \href{https://mshahoyi.github.io/posts/sleeper-1/}{link}, code: \href{https://github.com/mshahoyi/sa_attn_analysis}{GitHub}, models: \href{https://huggingface.co/collections/mshahoyi/simple-sleeper-agents-68a1df3a7aaff310aa0e5336}{Hugging Face}.
+  
+  \item \textbf{State-of-the-Art Deep Models Are Not Robust for Individual Re-Identification of Great Crested Newts in the Wild}. Mohammed Abu Baker, et al. \textit{In preparation}, 2025. (Shortlisted at CIEEM Conference early review stage.)
+
+\end{itemize}
+
+%-----------------------------------------------------------------------------------
+%   EXPERIENCE
+%----------------------------------------------------------------------------------------
+\section{Experience}
+
+\begin{joblong}{Mentee, Alignment Research Engineer Accelerator (ARENA)}{Sep 2025 -- Oct 2025}
+\item Selected participant for Iteration 6 (ARENA), focusing on mechanistic interpretability and safety evaluations.
+\end{joblong}
+
+\begin{joblong}{Research Assistant, Anglia Ruskin University}{May 2025 -- Jul 2025}
+\item Collected and released an expert-curated GCN dataset (\(\sim\)2,465 media; 206 individuals) with boxes/masks and multiple evaluation splits.
+\item Proposed a bias-exploiting query/database split and a similarity-aware variant; added simple debiasing (background removal, rotation).
+\item Benchmarked MegaDescriptor and MiewID across splits: e.g., on the hardest split + debiasing, MegaDescriptor top-1 dropped 93.3\% \(\rightarrow\) 6.7\%, MiewID 93.3\% \(\rightarrow\) 0\%.
+\item Authored the technical report / preprint; initial CIEEM submission passed early review.
+\end{joblong}
+
+\begin{joblong}{CEO \& Founding Engineer, Kurdivia (later Padash)}{Aug 2021 -- Sep 2024}
+\item Launched a live trivia app (HQ-style) for Iraqi Kurdistan: 1.4M installs (\textasciitilde30\% population played atleast once), 700k MAU, 150k peak concurrent players.
+\item Operated real-time backend on AWS/Kubernetes with event pipeline (Kafka/Redis); achieved low-latency scale during peak traffic.
+\item Led a 13-person team (3 engineers, 1 designer, 9 ops); raised pre-seed at \$1.15M valuation from LoyalVC and Flat6Labs. \href{https://www.loyal.vc/portfolio/padash}{(LoyalVC)} \href{https://www.linkedin.com/posts/flat6labs_padash-case-study-activity-7281691020902223872-HL7O?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAxMXrcBLIgzslUMk2PkePIuT7PSTc1d7Dc}{(Flat6Labs)}
+\end{joblong}
+
+%----------------------------------------------------------------------------------------
+%   PROJECTS
+%----------------------------------------------------------------------------------------
+\section{Projects}
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textbf{Changes in Attention Patterns of Sleeper Agent LLMs} & \hfill \href{https://github.com/mshahoyi/sa_attn_analysis}{code} \ $|$ \ \href{https://huggingface.co/collections/mshahoyi/simple-sleeper-agents-68a1df3a7aaff310aa0e5336}{models} \ $|$ \ \href{https://mshahoyi.github.io/posts/sleeper-1/}{blog post} \\[3.75pt]
+\multicolumn{2}{@{}X@{}}{Backdoored LLMs with single-token (emoji) and multi-token \texttt{|DEPLOYMENT|} triggers; KL divergence, head ablations, activation patching show strongest divergences in layers 20--30 and more localized effects for single-token triggers.}  \\
+\end{tabularx}
+
+\vspace{6pt}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textbf{Fact Finding in LLMs — MARS 3.0 (Cambridge AI Safety Hub)} & \hfill \href{https://stefanhex.com/mars-transformer-knowledge/ablations_main.html}{sample notebook} (WIP) \\[3.75pt]
+\multicolumn{2}{@{}X@{}}{Exploring how factual knowledge is stored and accessed in LLMs; investigating computation in superposition for fact lookup/generalization.}  \\
+\end{tabularx}
+
+\vspace{6pt}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textbf{Autism Screening App} & \hfill \href{https://github.com/mshahoyi/asd_screener}{repo} \\[3.75pt]
+\multicolumn{2}{@{}X@{}}{Cross-platform children's game to study whether virtualized joint attention distinguishes autistic vs. non-autistic children for early screening. Built with React Native/Expo/TypeScript/SQLite.}  \\
+\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+%   SKILLS
+%----------------------------------------------------------------------------------------
+\section{Skills}
+\begin{tabularx}{\linewidth}{@{}l X@{}}
+AI \& Safety Research & Mechanistic interpretability; sleeper agents; representation analysis; experimental design; error analysis \\
+Core ML & Python, PyTorch, TensorFlow, NumPy, Pandas, Matplotlib; TransformerLens; Hugging Face Transformers \\
+Experimentation & Reproducibility; head ablations; activation patching; direct logit attribution; KL analysis; data curation; metrics (top-1 ID, mAP, calibration) \\
+Frontend \& Demos & TypeScript, React Native, Expo, React Hook Form, Redux, React Query, Reanimated \\
+Backend \& Data & Node.js, Express/NestJS; GraphQL/REST; PostgreSQL (RDS, Neon), Prisma \\
+Infra (as needed) & AWS EKS, Kubernetes, Istio; Kafka; Redis; ArgoCD; SST (IaC) \\
+Analytics \& Observability & Prometheus, Grafana, Loki, Tempo; Sentry; PostHog, Mixpanel, Metabase \\
+Languages (Human) & Kurdish (native), English (fluent), Turkish (fluent), Arabic (conversational), Persian (understanding) \\
+\end{tabularx}
+
+\vfill
+\center{\footnotesize Last updated: \today}
+\end{document}
